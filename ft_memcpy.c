@@ -9,8 +9,11 @@
 /*   Updated: 2024/10/23 00:17:19 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdlib.h>
+
 void	*memcpy(void *dest, const void *src, size_t n)
 {
+	n--;
 	while (n >= 0)
 	{
 		((char *)dest)[n] = ((char *)src)[n];
