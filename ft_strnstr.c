@@ -36,14 +36,3 @@ char	*ft_strnstr(const char *s, const char *to_find, size_t n)
 	}
 	return (NULL);
 }
-
-#define S(s) ((s) ? (s) : ("(nil)"))
-#include <string.h>
-int main()
-{
-	char	*s = "Foo Bar Baz";
-	char	*sub_s = "Baz";
-
-	printf("%s\n", S(ft_strnstr(s, sub_s, 4)));
-	printf("%d", -0);
-}
