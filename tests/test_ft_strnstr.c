@@ -84,7 +84,8 @@ void run_strnstr_tests(char *(*func_to_test)(const char*, const char*, size_t)) 
 	}
 }
 
-int main() {
+int main()
+{
     run_strnstr_tests(ft_strnstr);
     return 0;
 }

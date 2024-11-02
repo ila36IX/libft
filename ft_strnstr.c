@@ -16,7 +16,7 @@ char	*ft_strnstr(const char *s, const char *to_find, size_t n)
 {
 	int	i;
 	int	j;
-	int	k;
+	size_t	k;
 
 	if (!s || !to_find)
 		return (NULL);
