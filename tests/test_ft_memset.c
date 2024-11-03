@@ -1,5 +1,4 @@
 #include "tests.h" 
-#include <string.h>
 
 typedef struct {
 	int	index;
@@ -60,7 +59,7 @@ int run_memset_tests(void	*(*func_to_test)(void *, int, size_t), int debug)
 		{
 			if (debug)
 			{
-				_TEST_FAIL(test_case.desc);
+				TEST_FAIL(test_case.desc);
 				printf("Expected:\n");
 				prinmem(s, test_case.size);
 				printf("Got:\n");

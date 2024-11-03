@@ -6,14 +6,16 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 00:08:32 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/01 21:26:08 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/03 19:29:15 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
 
 void	ft_bzero(void *s, size_t n)
 {
-	n--;
-	while (n >= 0)
-		((char *)s)[n--] = 0;
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+		((char *)s)[i++] = 0;
 }
