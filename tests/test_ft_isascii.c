@@ -1,38 +1,37 @@
 #include "tests.h"
 
 
-
 // Function to run all tests
-int	test_islpha(int debug)
+int	test_isascii(int debug)
 {
 	printf("\n");
 	for (int i = -128; i < 255; i++) {
-		if (isalpha(i) > 0) 
+		if (isascii(i) != 0) 
 		{
-			if (ft_isalpha(i) <= 0)
+			if (ft_isascii(i) == 0)
 			{
 				if (debug)
 				{
 					TEST_FAIL("In this charachter");
 					printf("%d\n", i);
-					printf("  -> Exp: %d\n", isalpha(i));
-					printf("  -> Got: %d\n", ft_isalpha(i));
+					printf("  -> Exp: %d\n", isascii(i));
+					printf("  -> Got: %d\n", ft_isascii(i));
 				}
-					return FALSE;
+				return FALSE;
 			}
 		} 
-		if (isalpha(i) == 0) 
+		if (isascii(i) == 0) 
 		{
-			if (ft_isalpha(i) > 0)
+			if (ft_isascii(i) != 0)
 			{
 				if (debug)
 				{
 					TEST_FAIL("In this charachter");
 					printf("%d\n", i);
-					printf("  -> Exp: %d\n", isalpha(i));
-					printf("  -> Got: %d\n", ft_isalpha(i));
+					printf("  -> Exp: %d\n", isascii(i));
+					printf("  -> Got: %d\n", ft_isascii(i));
 				}
-					return FALSE;
+				return (FALSE);
 			}
 		} 
 	}
@@ -46,11 +45,10 @@ int main(int ac, char **av)
 	(void) av;
 	if (ac > 1)
 		debug = TRUE;
-	if (test_islpha(debug))
-		TEST_PASS("isalpha\n");
+	if (test_isascii(debug))
+		TEST_PASS("isascii\n");
 	else
-		TEST_FAIL("isalpha\n");
-
+		TEST_FAIL("isascii\n");
 	return 0;
 }
 

@@ -52,7 +52,7 @@ TestCase atoi_tests[] = {
 int run_atoi_tests(int (*func_to_test)(char*), int debug)
 {
 	int num_tests = sizeof(atoi_tests) / sizeof(atoi_tests[0]);
-	int OK;
+	int OK = TRUE;
 
 	for (int i = 0; i < num_tests; i++) {
 		TestCase test_case = atoi_tests[i];
@@ -69,8 +69,7 @@ int run_atoi_tests(int (*func_to_test)(char*), int debug)
 		{
 			if (debug)
 			{
-				TEST_PASS(test_case.desc);
-				_TEST_FAIL(test_case.desc);
+				TEST_FAIL(test_case.desc);
 				printf("  -> Expected: %d\n", expected);
 				printf("  -> Got: %d\n", result);
 				printf("\n");
@@ -81,9 +80,14 @@ int run_atoi_tests(int (*func_to_test)(char*), int debug)
 	return (OK);
 }
 
-int main()
+int main(int ac, char **av)
 {
-	if (run_atoi_tests(ft_atoi, TRUE))
+	int debug = FALSE;
+
+	(void) av;
+	if (ac > 1)
+		debug = TRUE;
+	if (run_atoi_tests(ft_atoi, debug))
 		TEST_PASS("atoi");
 	else
 		TEST_FAIL("atoi");

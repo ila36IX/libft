@@ -1,6 +1,5 @@
 #include "tests.h"
 
-int	ft_isdigit(int c);
 
 
 // Function to run all tests

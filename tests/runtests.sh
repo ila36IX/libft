@@ -28,7 +28,7 @@ echo -e "${CYAN}>>>>> Testing ft_$func <<<<<${NC}"
 echo ""
 
 if [[ -e "ft_$func.c" ]]; then
-	gcc -g -Wall -Wextra -Werror "ft_$func.c" "tests/test_ft_$func.c" -o runtests && ./runtests
+	gcc -g -Wall -Wextra -Werror "ft_$func.c" "tests/test_ft_$func.c" -o runtests && ./runtests debug
 else
 	echo "Messing the file: ft_$func.c"
 fi

@@ -6,11 +6,11 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 23:52:13 by aljbari           #+#    #+#             */
-/*   Updated: 2024/10/22 23:57:19 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/03 16:32:44 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	isalnum(int c)
+int	ft_isalnum(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (1);

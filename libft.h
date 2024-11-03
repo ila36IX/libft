@@ -5,3 +5,4 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n);
 int	ft_isalpha(int c);
+int	ft_isprint(int c);

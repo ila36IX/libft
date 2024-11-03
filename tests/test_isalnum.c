@@ -1,38 +1,37 @@
 #include "tests.h"
 
 
-
 // Function to run all tests
-int	test_islpha(int debug)
+int	test_isalnum(int debug)
 {
 	printf("\n");
 	for (int i = -128; i < 255; i++) {
-		if (isalpha(i) > 0) 
+		if (isalnum(i) != 0) 
 		{
-			if (ft_isalpha(i) <= 0)
+			if (ft_isalnum(i) == 0)
 			{
 				if (debug)
 				{
 					TEST_FAIL("In this charachter");
 					printf("%d\n", i);
-					printf("  -> Exp: %d\n", isalpha(i));
-					printf("  -> Got: %d\n", ft_isalpha(i));
+					printf("  -> Exp: %d\n", isalnum(i));
+					printf("  -> Got: %d\n", ft_isalnum(i));
 				}
-					return FALSE;
+				return FALSE;
 			}
 		} 
-		if (isalpha(i) == 0) 
+		if (isalnum(i) == 0) 
 		{
-			if (ft_isalpha(i) > 0)
+			if (ft_isalnum(i) != 0)
 			{
 				if (debug)
 				{
 					TEST_FAIL("In this charachter");
 					printf("%d\n", i);
-					printf("  -> Exp: %d\n", isalpha(i));
-					printf("  -> Got: %d\n", ft_isalpha(i));
+					printf("  -> Exp: %d\n", isalnum(i));
+					printf("  -> Got: %d\n", ft_isalnum(i));
 				}
-					return FALSE;
+				return FALSE;
 			}
 		} 
 	}
@@ -46,11 +45,10 @@ int main(int ac, char **av)
 	(void) av;
 	if (ac > 1)
 		debug = TRUE;
-	if (test_islpha(debug))
-		TEST_PASS("isalpha\n");
+	if (test_isalnum(debug))
+		TEST_PASS("isalnum\n");
 	else
-		TEST_FAIL("isalpha\n");
-
+		TEST_FAIL("isalnum\n");
 	return 0;
 }
 
