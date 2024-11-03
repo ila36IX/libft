@@ -9,5 +9,8 @@
 #define TEST_PASS(msg) printf(SUCCESS_MSG("PASS")" %s\n", msg)
 #define _TEST_FAIL(msg) printf(ERROR_MSG("FAIL")" Test 0x%02X: %s\n", test_case.index, msg)
 #define _TEST_PASS(msg) printf(SUCCESS_MSG("PASS")" Test 0x%02X: %s\n", test_case.index, msg)
+#define TRUE 1
+#define FALSE 0
 
 char	*ft_strnstr(const char *, const char *, size_t);
+int	ft_atoi(char *str);

@@ -1,4 +1,5 @@
 #include "tests.h" 
+#include <stdio.h>
 
 /*
  * _strnstr - the bsd original implementations
@@ -26,9 +27,9 @@ char *_strnstr(const char *s, const char *find, size_t slen)
 
 typedef struct {
     int index;
-    char desc[50];
-    char haystack[100];
-    char needle[50];
+    char *desc;
+    char *haystack;
+    char *needle;
     size_t len;
 } StrnstrTestCase;
 
@@ -56,12 +57,15 @@ StrnstrTestCase strnstr_tests[] = {
     {0x14, "Unicode character match", "Albedo’s Omnitrix", "Omnitrix", 50},
     {0x15, "Empty haystack with non-empty needle", "", "Heatblast", 10},
     {0x16, "Both haystack and needle empty", "", "", 10},
+    {0x17, "sub exists && n = len(sub) + 1", "Foo Bar Baz", "Bar", 4},
+    {0x18, "sub exists in the end && n = len(sub) + 1", "Foo Bar Baz", "Baz", 4},
+    {0x19, "size is 0", "hello", "test test", 0},
 };
 
-void run_strnstr_tests(char *(*func_to_test)(const char*, const char*, size_t)) {
+void run_strnstr_tests(char *(*func_to_test)(const char*, const char*, size_t))
+{
 	int num_tests = sizeof(strnstr_tests) / sizeof(strnstr_tests[0]);
 
-	printf("\nRun strnstr\n");
 	for (int i = 0; i < num_tests; i++) {
 		StrnstrTestCase test_case = strnstr_tests[i];
 
