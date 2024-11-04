@@ -47,6 +47,7 @@ TestCase atoi_tests[] = {
     {34, "Sign before zero", "+0"},
     {35, "Signs with no digits", "+-"},
     {36, "Digits and special characters mixed", "12!@#"},
+    {37, "flex segfulat", "222222222222222222"},
 };
 
 int run_atoi_tests(int (*func_to_test)(char*), int debug)

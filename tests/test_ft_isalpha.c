@@ -5,7 +5,6 @@
 // Function to run all tests
 int	test_islpha(int debug)
 {
-	printf("\n");
 	for (int i = -128; i < 255; i++) {
 		if (isalpha(i) > 0) 
 		{
@@ -47,9 +46,9 @@ int main(int ac, char **av)
 	if (ac > 1)
 		debug = TRUE;
 	if (test_islpha(debug))
-		TEST_PASS("isalpha\n");
+		TEST_PASS("isalpha");
 	else
-		TEST_FAIL("isalpha\n");
+		TEST_FAIL("isalpha");
 
 	return 0;
 }

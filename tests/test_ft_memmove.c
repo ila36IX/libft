@@ -1,13 +1,13 @@
 #include "tests.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n);
 
-void run_tests() {
+int run_memmove_tests(int debug) {
 	char *s1 = NULL;
 	char *s2 = NULL;
 	char *o1 = NULL;
 	char *o2 = NULL;
 	char *test_case = NULL;
+	int OK = TRUE;
 	
 	test_case = "WHEN: src is less then dest";
 	s1 = strdup("alien is not from earth");
@@ -16,12 +16,19 @@ void run_tests() {
 	o2 = ft_memmove(&s2[14], &s2[9], 9);
 	if (strcmp(o1, o2) != 0)
 	{
-		TEST_FAIL(test_case);
-		printf("\tEXP: %s\n", o1);
-		printf("\tYOU: %s\n", o2);
+		if (debug)
+		{
+			TEST_FAIL(test_case);
+			printf("\tEXP: %s\n", o1);
+			printf("\tYOU: %s\n", o2);
+			OK = FALSE;
+		}
 	}
 	else
-		TEST_PASS(test_case);
+	{
+		if (debug)
+			TEST_PASS(test_case);
+	}
 	free(s1);
 	free(s2);
 
@@ -32,12 +39,20 @@ void run_tests() {
 	o2 = ft_memmove(&s2[9], &s2[14], 9);
 	if (strcmp(o1, o2) != 0)
 	{
-		TEST_FAIL(test_case);
-		printf("\tEXP: %s\n", o1);
-		printf("\tYOU: %s\n", o2);
+		if (debug)
+		{
+
+			TEST_FAIL(test_case);
+			printf("\tEXP: %s\n", o1);
+			printf("\tYOU: %s\n", o2);
+			OK = FALSE;
+		}
 	}
 	else
-		TEST_PASS(test_case);
+	{
+		if (debug)
+			TEST_PASS(test_case);
+	}
 	free(s1);
 	free(s2);
 
@@ -48,12 +63,19 @@ void run_tests() {
 	o2 = ft_memmove(s2, s2, 9);
 	if (strcmp(o1, o2) != 0)
 	{
-		TEST_FAIL(test_case);
-		printf("\tEXP: %s\n", o1);
-		printf("\tYOU: %s\n", o2);
+		if (debug)
+		{
+			TEST_FAIL(test_case);
+			printf("\tEXP: %s\n", o1);
+			printf("\tYOU: %s\n", o2);
+			OK = FALSE;
+		}
 	}
 	else
-		TEST_PASS(test_case);
+	{
+		if (debug)
+			TEST_PASS(test_case);
+	}
 	free(s1);
 	free(s2);
 
@@ -65,23 +87,43 @@ void run_tests() {
 	o2 = ft_memmove(s2, s2, 0);
 	if (o2 == NULL)
 	{
-		TEST_FAIL(test_case);
-		printf("\tEXP: %s\n", o1);
-		printf("\tYOU: %s\n", o2);
+		if (debug)
+		{
+			TEST_FAIL(test_case);
+			printf("\tEXP: %s\n", o1);
+			printf("\tYOU: %s\n", o2);
+		}
 	}
 	else if (strcmp(o1, o2) != 0)
 	{
-		TEST_FAIL(test_case);
-		printf("\tEXP: %s\n", o1);
-		printf("\tYOU: %s\n", o2);
+		if (debug)
+		{
+			TEST_FAIL(test_case);
+			printf("\tEXP: %s\n", o1);
+			printf("\tYOU: %s\n", o2);
+		}
 	}
 	else
-		TEST_PASS(test_case);
+	{
+		if (debug)
+			TEST_PASS(test_case);
+	}
 	free(s1);
 	free(s2);
+	return (OK);
 }
 
-int main()
+int main(int ac,char **av)
 {
-	run_tests();	
+	int debug = FALSE;
+
+	(void) av;
+	if (ac > 1)
+		debug = TRUE;
+
+	if (run_memmove_tests(debug))
+		TEST_PASS("memmove");
+	else
+		TEST_FAIL("memmove");
+	return (0);
 }

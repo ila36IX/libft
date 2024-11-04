@@ -4,7 +4,6 @@
 // Function to run all tests
 int	test_isascii(int debug)
 {
-	printf("\n");
 	for (int i = -128; i < 255; i++) {
 		if (isascii(i) != 0) 
 		{
@@ -46,9 +45,9 @@ int main(int ac, char **av)
 	if (ac > 1)
 		debug = TRUE;
 	if (test_isascii(debug))
-		TEST_PASS("isascii\n");
+		TEST_PASS("isascii");
 	else
-		TEST_FAIL("isascii\n");
+		TEST_FAIL("isascii");
 	return 0;
 }
 

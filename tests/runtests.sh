@@ -3,7 +3,9 @@
 # within the directory where the test directory are exists
 
 CYAN='\033[0;36m'
+BLUE='\033[0;34m'
 NC='\033[0m'
+
 
 echo "▄▄▄▄▄▄▄▄▄ ..▄▄ · ▄▄▄▄▄▪   ▐ ▄  ▄▄ •       "
 sleep 0.05
@@ -22,14 +24,34 @@ if [[ -z $func ]]; then
 	exit 1
 fi
 
-echo ""
-# It's important to use -e to allow backslash escapes.
-echo -e "${CYAN}>>>>> Testing ft_$func <<<<<${NC}"
-echo ""
-
-if [[ -e "ft_$func.c" ]]; then
-	gcc -g -Wall -Wextra -Werror "ft_$func.c" "tests/test_ft_$func.c" -o runtests && ./runtests debug
-else
-	echo "Messing the file: ft_$func.c"
+if [[ -z $func ]]; then
+	echo "Please provide at least one function to test"
+	exit 1
 fi
+
+if [[ $1 == "all" ]]; then
+while read -r f; do
+	if [[ -e "ft_$f.c" ]]; then
+		if [[ -e "tests/test_ft_$f.c" ]]; then
+			gcc -g -Wall -Wextra -Werror "ft_$f.c" "tests/test_ft_$f.c" -o runtests && ./runtests
+		else
+			echo -e "${BLUE}No test for '$f', yet!${NC}"
+		fi
+	else
+		echo "Messing the file: ft_$f.c"
+	fi
+done < ./tests/functions.txt
+else
+	echo ""
+	# It's important to use -e to allow backslash escapes.
+	echo -e "${CYAN}>>>>> Testing ft_$func <<<<<${NC}"
+	echo ""
+
+	if [[ -e "ft_$func.c" ]]; then
+		gcc -g -Wall -Wextra -Werror "ft_$func.c" "tests/test_ft_$func.c" -o runtests && ./runtests debug
+	else
+		echo "Messing the file: ft_$func.c"
+	fi
+fi
+
 

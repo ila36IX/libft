@@ -4,7 +4,6 @@
 // Function to run all tests
 int	test_isprint(int debug)
 {
-	printf("\n");
 	for (int i = -128; i < 255; i++) {
 		if (isprint(i) != 0) 
 		{
@@ -46,9 +45,9 @@ int main(int ac, char **av)
 	if (ac > 1)
 		debug = TRUE;
 	if (test_isprint(debug))
-		TEST_PASS("isprint\n");
+		TEST_PASS("isprint");
 	else
-		TEST_FAIL("isprint\n");
+		TEST_FAIL("isprint");
 
 	return 0;
 }

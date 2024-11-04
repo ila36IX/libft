@@ -20,11 +20,17 @@ project-root/
 
 ### Usage
 
-To run tests, use the following command:
+To run test on a particular function, use the following command:
 
 ```bash
 ./tests/runtests.sh memmove
 ```
-
 Replace `memmove` with the name of the function you want to test.
 
+
+To test the entire library, use the following command:
+
+
+```bash
+./tests/runtests.sh all
+```

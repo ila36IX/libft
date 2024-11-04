@@ -62,9 +62,10 @@ StrnstrTestCase strnstr_tests[] = {
     {0x19, "size is 0", "hello", "test test", 0},
 };
 
-void run_strnstr_tests(char *(*func_to_test)(const char*, const char*, size_t))
+int run_strnstr_tests(char *(*func_to_test)(const char*, const char*, size_t), int debug)
 {
 	int num_tests = sizeof(strnstr_tests) / sizeof(strnstr_tests[0]);
+	int OK = TRUE;
 
 	for (int i = 0; i < num_tests; i++) {
 		StrnstrTestCase test_case = strnstr_tests[i];
@@ -74,22 +75,40 @@ void run_strnstr_tests(char *(*func_to_test)(const char*, const char*, size_t))
 
 		if (result == expected && result && expected && strcmp(result, expected) == 0)
 		{
+			if (debug)
 				TEST_PASS(test_case.desc);
 		}
 		else if (result == expected && !result && !expected)
+		{
+			if (debug)
 				TEST_PASS(test_case.desc);
+		}
 		else
 		{
-			TEST_FAIL(test_case.desc);
-			printf("  -> Expected: %s\n", expected ? expected : "NULL");
-			printf("  -> Got: %s\n", result ? result : "NULL");
+			if (debug)
+			{
+				TEST_FAIL(test_case.desc);
+				printf("  -> Expected: %s\n", expected ? expected : "NULL");
+				printf("  -> Got: %s\n", result ? result : "NULL");
+			}
+			OK = FALSE;
 		}
-		printf("\n");
 	}
+	return OK;
 }
 
-int main()
+int main(int ac,char **av)
 {
-    run_strnstr_tests(ft_strnstr);
+	int debug = FALSE;
+
+	(void) av;
+	if (ac > 1)
+		debug = TRUE;
+
+	if (run_strnstr_tests(ft_strnstr, debug))
+		TEST_PASS("strnstr");
+	else
+		TEST_FAIL("strnstr");
+	return 0;
     return 0;
 }
