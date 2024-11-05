@@ -1,8 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/05 19:25:38 by aljbari           #+#    #+#             */
+/*   Updated: 2024/11/05 19:27:09 by aljbari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#ifndef LIBFT_H
+# define LIBFT_H
+
+# include <stddef.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
 
 void				*ft_memmove(void *dest, const void *src, size_t n);
 int					ft_isalpha(int c);
@@ -28,3 +42,5 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+
+#endif

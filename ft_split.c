@@ -6,7 +6,7 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 22:06:42 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/05 19:23:14 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/05 19:29:47 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,7 @@ static void	free_arr(char **tokens, int filled_size)
 char	**ft_split(char const *s, char c)
 {
 	char	**tokens;
-	char	*buff;
 	int		i;
-	int		j;
 
 	tokens = malloc(sizeof(char *) * count_words(s, c) + 1);
 	if (!tokens)
@@ -91,7 +89,10 @@ char	**ft_split(char const *s, char c)
 	{
 		s = fill_buff(tokens, s, c, i++);
 		if (!s)
+		{
+			free_arr(tokens, i);
 			return (NULL);
+		}
 	}
 	tokens[i] = NULL;
 	return (tokens);
