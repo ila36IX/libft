@@ -1,0 +1,4 @@
+run
+runtests
+*.o
+tests/*.o
