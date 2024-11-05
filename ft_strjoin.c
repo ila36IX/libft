@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 21:22:27 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/01 21:25:35 by aljbari          ###   ########.fr       */
+/*   Created: 2024/11/04 19:04:48 by aljbari           #+#    #+#             */
+/*   Updated: 2024/11/04 19:05:07 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+char *ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int 	i;
-	unsigned int j;
+	size_t	i;
+	size_t	j;
+	char	*buff;
 
+	buff = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!buff)
+		return (NULL);
 	i = 0;
 	j = 0;
-	while(src[i])
-	i++;
-	while(dest[j])
-		j++;
-	if (size == 0 || j > size)
-	return (size + i);
-	while (*dest)
-	dest++;
-	size -= j;
-	while (*src && size > 1)
-	{
-		*dest++ = *src++;	
-		size--;
-	}
-	*dest = '\0';
-	return (i + j);
+	if (s1)
+		while(s1[j])
+			buff[i++] = s1[j++];
+	j = 0;
+	if (s2)
+		while(s2[j])
+			buff[i++] = s2[j++];
+	buff[i] = '\0';
+	return (buff);
 }

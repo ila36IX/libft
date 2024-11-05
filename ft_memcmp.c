@@ -6,14 +6,14 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 22:03:58 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/01 22:10:43 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/04 18:26:29 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
 
 int	memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	i;
+	size_t	i;
 	unsigned char a;
 	unsigned char b;
 
