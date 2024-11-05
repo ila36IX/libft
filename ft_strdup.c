@@ -6,9 +6,10 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:18:28 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/04 18:43:29 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/05 18:25:59 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strdup(const char *src)

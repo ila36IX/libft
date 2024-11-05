@@ -6,9 +6,11 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 21:49:31 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/01 21:53:30 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/05 18:26:42 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {

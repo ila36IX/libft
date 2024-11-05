@@ -6,10 +6,11 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 00:08:32 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/03 19:29:15 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/05 18:24:38 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

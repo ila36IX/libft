@@ -6,9 +6,10 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:46:42 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/04 18:54:34 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/05 18:26:28 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlen(const char *s)

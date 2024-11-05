@@ -6,12 +6,11 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 22:11:06 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/03 17:08:31 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/05 18:26:50 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
-#include <stdlib.h>
-#include <stdio.h>
+
+#include "libft.h"
 
 char	*ft_strnstr(const char *s, const char *to_find, size_t n)
 {
@@ -22,7 +21,7 @@ char	*ft_strnstr(const char *s, const char *to_find, size_t n)
 	if (!s || !to_find)
 		return (NULL);
 	if (!s[0] && !to_find[0])
-		return ((char *) s);
+		return ((char *)s);
 	i = 0;
 	while (s[i] && i < n)
 	{
@@ -71,11 +70,14 @@ char	*ft_strnstr(const char *s, const char *to_find, size_t n)
 /*		size_t len;*/
 /*	} StrnstrTestCase;*/
 /*	StrnstrTestCase strnstr_tests[] = {*/
-/*		{0x0A, "Haystack and needle are identical", "Cannonbolt", "Cannonbolt", 50},*/
+/*		{0x0A, "Haystack and needle are identical", "Cannonbolt", "Cannonbolt",
+			50},*/
 /*	};*/
 /*	StrnstrTestCase test_case = strnstr_tests[0];*/
-/*	const char *expected = _strnstr(test_case.haystack, test_case.needle, test_case.len);*/
-/*	const char *result = ft_strnstr(test_case.haystack, test_case.needle, test_case.len);*/
+/*	const char *expected = _strnstr(test_case.haystack, test_case.needle,
+			test_case.len);*/
+/*	const char *result = ft_strnstr(test_case.haystack, test_case.needle,
+			test_case.len);*/
 /**/
 /*	printf("%p\n", expected);*/
 /*	printf("%p\n", result);*/

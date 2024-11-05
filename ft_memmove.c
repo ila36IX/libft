@@ -6,11 +6,11 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 02:30:58 by aljbari           #+#    #+#             */
-/*   Updated: 2024/10/24 03:12:50 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/05 18:25:37 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -22,7 +22,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		while (i != 0)
 		{
 			i--;
-			((char *) dest)[i] = ((char *) src)[i];
+			((char *)dest)[i] = ((char *)src)[i];
 		}
 	}
 	else if (dest < src)
@@ -30,7 +30,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		i = 0;
 		while (i < n)
 		{
-			((char *) dest)[i] = ((char *) src)[i];
+			((char *)dest)[i] = ((char *)src)[i];
 			i++;
 		}
 	}
