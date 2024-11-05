@@ -28,4 +28,6 @@ int	ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 void	*ft_memmove(void *dest, const void *src, size_t n);
-char **ft_split(char const *s, char c);
+char	**ft_split(char const *s, char c);
+char	*ft_itoa(int n);
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char));

@@ -19,3 +19,14 @@ strlcpy
 strlcat
 atoi
 toupper
+substr
+strjoin
+strtrim
+split
+itoa
+strmapi
+striteri
+putchar_fd
+putstr_fd
+putendl_fd
+putnbr_fd
