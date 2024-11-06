@@ -6,17 +6,18 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 00:03:02 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/03 17:42:13 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/05 18:25:44 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <stdlib.h>
 
 void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
-	
+
 	i = 0;
 	while (i < n)
-		((char *) s)[i++] = c;
+		((char *)s)[i++] = c;
 	return (s);
-}	
+}

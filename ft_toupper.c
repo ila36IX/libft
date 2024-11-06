@@ -6,13 +6,15 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 21:26:35 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/01 21:53:30 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/05 18:27:28 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		return c - ('a' - 'A');
+		return (c - ('a' - 'A'));
 	return (c);
 }

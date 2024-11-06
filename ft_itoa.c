@@ -6,9 +6,10 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 05:00:06 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/05 05:30:04 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/05 18:25:07 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 static int	num_size(int n)
@@ -24,7 +25,6 @@ static int	num_size(int n)
 		n /= 10;
 	}
 	return (i);
-
 }
 
 static void	rev(char *s)
@@ -48,8 +48,8 @@ static void	rev(char *s)
 
 char	*ft_itoa(int n)
 {
-	char		*buff;
-	int		i;
+	char			*buff;
+	int				i;
 	unsigned int	nb;
 
 	buff = malloc(sizeof(char) * num_size(n));
@@ -64,7 +64,7 @@ char	*ft_itoa(int n)
 		nb = n * -1;
 		buff[i++] = '-';
 	}
-	while(nb)
+	while (nb)
 	{
 		buff[i++] = nb % 10 + '0';
 		nb /= 10;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/05 18:27:12 by aljbari           #+#    #+#             */
+/*   Updated: 2024/11/05 18:27:14 by aljbari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	alloc_size(char const *s, unsigned int start, size_t len)
@@ -15,14 +27,13 @@ static int	alloc_size(char const *s, unsigned int start, size_t len)
 		return (len);
 	else
 		return (size - start + 1);
-
 }
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*buff;
 	size_t	i;
-	int	alloc_s;
+	int		alloc_s;
 
 	alloc_s = alloc_size(s, start, len);
 	if (alloc_s <= 0)

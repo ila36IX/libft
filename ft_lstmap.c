@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 21:26:35 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/05 18:27:23 by aljbari          ###   ########.fr       */
+/*   Created: 2024/11/05 18:16:34 by aljbari           #+#    #+#             */
+/*   Updated: 2024/11/05 18:16:35 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + ('a' - 'A'));
-	return (c);
+	t_list	*head;
+	t_list	*node;
+
+	if (!lst || !f || !del)
+		return (NULL);
+	head = NULL;
+	while (lst)
+	{
+		node = ft_lstnew(f(lst->content));
+		if (!node)
+		{
+			ft_lstclear(&head, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&head, node);
+		lst = lst->next;
+	}
+	return (head);
 }

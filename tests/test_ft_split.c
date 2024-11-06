@@ -3,9 +3,9 @@
 typedef struct {
 	int     index;        
 	char    desc[50];     
-	char    input[50];    
+	char    input[200];    
 	char    delimiter;    
-	char    *expected[10];
+	char    *expected[200];
 } TestCase;
 
 TestCase tests[] = {
@@ -34,9 +34,18 @@ TestCase tests[] = {
 	{0x17, "Numbers only", "10:11:12:13", ':', {"10", "11", "12", "13", NULL}},
 	{0x18, "Mixed content", "Alien-123;Force-456;Ultimate-789", ';', {"Alien-123", "Force-456", "Ultimate-789", NULL}},
 	{0x19, "Long word", "SuperhugeultimatealienforceomnitrixwieldingBen", ' ', {"SuperhugeultimatealienforceomnitrixwieldingBen", NULL}},
-	{0x1A, "Symbol delimiter", "Stinkfly#Wildvine#Ghostfreak", '#', {"Stinkfly", "Wildvine", "Ghostfreak", NULL}}
+	{0x1A, "Symbol delimiter", "Stinkfly#Wildvine#Ghostfreak", '#', {"Stinkfly", "Wildvine", "Ghostfreak", NULL}},
+	{0x1B, "very long string", "   ben     ben     ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ben ", ' ', {"ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben","ben", NULL}},
+	{0x1B, "very other long string", "x x x x x x x x x x x x x ", ' ',{ "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x",  NULL}}
 };
 
+int calc_size(char **tokens)
+{
+	int i = 0;
+	while (tokens[i])
+		i++;
+	return (i);
+}
 int	run_ft_split_tests(int debug) {
 	int num_tests = sizeof(tests) / sizeof(tests[0]);
 	int OK = TRUE;
@@ -45,16 +54,22 @@ int	run_ft_split_tests(int debug) {
 		TestCase test_case = tests[i];
 		char **result = ft_split(test_case.input, test_case.delimiter);
 		int passed = TRUE;
-
-		for (int j = 0; test_case.expected[j] != NULL; j++)
+		int exp_size = calc_size(test_case.expected);
+		int got_size = calc_size(result);
+		if (exp_size == got_size)
 		{
-			if (strcmp(result[j], test_case.expected[j]) != 0)
+			for (int j = 0; test_case.expected[j] != NULL; j++)
 			{
-				passed = FALSE;
-				OK = FALSE;
-				break;
+				if (strcmp(result[j], test_case.expected[j]) != 0)
+				{
+					passed = FALSE;
+					OK = FALSE;
+					break;
+				}
 			}
 		}
+		else
+			OK = FALSE, passed = FALSE;
 		if (debug)
 		{
 			if (passed)
