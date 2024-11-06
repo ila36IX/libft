@@ -6,7 +6,7 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 19:05:00 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/05 18:27:05 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/06 06:19:27 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ static void	fill_size(const char *s, char *buff, const char *set)
 	end = s;
 	while (start <= end)
 		*buff++ = *start++;
+	*buff = '\0';
 }
 
 char	*ft_strtrim(char const *s1, char const *set)

@@ -6,22 +6,22 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 21:22:27 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/05 18:26:18 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/06 05:11:25 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
 	unsigned int	i;
 	unsigned int	j;
 
 	i = 0;
 	j = 0;
-	while (src[i])
+	while (src && src[i])
 		i++;
-	while (dest[j])
+	while (dest && dest[j])
 		j++;
 	if (size == 0 || j > size)
 		return (size + i);

@@ -6,7 +6,7 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 22:11:06 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/05 18:26:50 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/06 05:29:30 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,53 +38,3 @@ char	*ft_strnstr(const char *s, const char *to_find, size_t n)
 	}
 	return (NULL);
 }
-
-/*#include <string.h>*/
-/*#include <stdlib.h>*/
-/*char *_strnstr(const char *s, const char *find, size_t slen)*/
-/*{*/
-/*	char c, sc;*/
-/*	size_t len;*/
-/**/
-/*	if ((c = *find++) != '\0') {*/
-/*		len = strlen(find);*/
-/*		do {*/
-/*			do {*/
-/*				if (slen-- < 1 || (sc = *s++) == '\0')*/
-/*					return (NULL);*/
-/*			} while (sc != c);*/
-/*			if (len > slen)*/
-/*				return (NULL);*/
-/*		} while (strncmp(s, find, len) != 0);*/
-/*		s--;*/
-/*	}*/
-/*	return ((char *)s);*/
-/*}*/
-/*int main()*/
-/*{*/
-/*	typedef struct {*/
-/*		int index;*/
-/*		char *desc;*/
-/*		char *haystack;*/
-/*		char *needle;*/
-/*		size_t len;*/
-/*	} StrnstrTestCase;*/
-/*	StrnstrTestCase strnstr_tests[] = {*/
-/*		{0x0A, "Haystack and needle are identical", "Cannonbolt", "Cannonbolt",
-			50},*/
-/*	};*/
-/*	StrnstrTestCase test_case = strnstr_tests[0];*/
-/*	const char *expected = _strnstr(test_case.haystack, test_case.needle,
-			test_case.len);*/
-/*	const char *result = ft_strnstr(test_case.haystack, test_case.needle,
-			test_case.len);*/
-/**/
-/*	printf("%p\n", expected);*/
-/*	printf("%p\n", result);*/
-/**/
-/*	expected = _strnstr("Cannonbolt", "Cannonbolt", 50);*/
-/*	result = ft_strnstr("Cannonbolt", "Cannonbolt", 50);*/
-/**/
-/*	printf("%p\n", expected);*/
-/*	printf("%p\n", result);*/
-/*}*/

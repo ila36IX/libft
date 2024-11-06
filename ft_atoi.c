@@ -6,7 +6,7 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 15:18:51 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/05 18:24:27 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/06 05:30:47 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_isspace(char c)
 	return (found);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	char			c;
 	int				sign;
