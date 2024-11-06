@@ -6,7 +6,7 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 05:41:11 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/05 18:26:37 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/06 17:08:42 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!buff)
 		return (NULL);
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
 		buff[i] = f(i, s[i]);
 		i++;

@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/bash
 # This script meant to be run from outside this directory, it needs to be run
 # within the directory where the test directory are exists
 
@@ -33,7 +33,7 @@ if [[ $1 == "all" ]]; then
 while read -r f; do
 	if [[ -e "ft_$f.c" ]]; then
 		if [[ -e "tests/test_ft_$f.c" ]]; then
-			gcc -g -Wall -Wextra -Werror *.c "tests/test_ft_$f.c" -o runtests && ./runtests
+			gcc -g -Wall -Wextra -Werror -L. -lft "tests/test_ft_$f.c" -o runtests && ./runtests
 		else
 			echo -e "${BLUE}No test for '$f', yet!${NC}"
 		fi
@@ -48,7 +48,7 @@ else
 	echo ""
 
 	if [[ -e "ft_$func.c" ]]; then
-		gcc -g -Wall -Wextra -Werror *.c "tests/test_ft_$func.c" -o runtests && ./runtests debug
+		gcc -g -Wall -Wextra -Werror -L. -lft "tests/test_ft_$func.c" -o runtests && ./runtests debug
 	else
 		echo "Messing the file: ft_$func.c"
 	fi
