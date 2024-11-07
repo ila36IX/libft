@@ -33,7 +33,7 @@ int run_toupper_tests(int debug)
 	for (int i = 0; i < num_tests; i++) {
 		TestCase test_case = toupper_tests[i];
 		int c = toupper(test_case.c);
-		int _c = toupper(test_case.c);
+		int _c = ft_toupper(test_case.c);
 		if (c == _c)
 		{
 			if (debug)

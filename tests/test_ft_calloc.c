@@ -5,7 +5,7 @@ int main()
     int OK = TRUE;
     size_t num_elements = 20;
     size_t element_size = sizeof(int);
-    int *arr = (int *)calloc(num_elements, element_size);
+    int *arr = (int *)ft_calloc(num_elements, element_size);
 
     for (size_t i = 0; i < num_elements; i++)
         if (arr[i])
@@ -14,7 +14,7 @@ int main()
         arr[i] = i + 1;
 
     free(arr);
-    arr = (int *)calloc(num_elements, element_size);
+    arr = (int *)ft_calloc(num_elements, element_size);
 
     for (size_t i = 0; i < num_elements; i++)
         if (arr[i])

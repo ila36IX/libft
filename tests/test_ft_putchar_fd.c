@@ -1,44 +1,30 @@
 #include "tests.h"
 
-int	main(void)
+int main()
 {
-	int		OK;
-	char	c;
-	int		fd;
-	char	temp_file[] = "/tmp/ft_putchar_fd_test_69";
-			char buffer[2] = {0};
+	const char *file_path = "/tmp/file_descrriptor_tests.txt";
 
-	OK = TRUE;
-	c = 'A';
-	fd = mkstemp(temp_file);
+	int fd = open(file_path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 
+	ft_putchar_fd('A', fd);
+
+	close(fd);
+
+	fd = open(file_path, O_RDONLY);
+
+	char buffer[2];
+	ssize_t bytes_read = read(fd, buffer, 1);
+
+	buffer[1] = '\0';
+
+	if (bytes_read > 0)
 	{
-		ft_putchar_fd(c, fd);
-		close(fd);
-		fd = open(temp_file, O_RDONLY);
-		if (fd == -1)
-		{
-			TEST_FAIL("ft_putchar_fd failed to open temporary file");
-			OK = FALSE;
-		}
+		if (buffer[0] == 'A')
+			TEST_PASS("putchar_fd");
 		else
-		{
-			if (read(fd, buffer, 1) != 1 || buffer[0] != c)
-			{
-				TEST_FAIL("ft_putchar_fd did not write the correct character to the file");
-				OK = FALSE;
-			}
-			else
-			{
-				TEST_PASS("ft_putchar_fd writes to a file correctly");
-			}
-			close(fd);
-			unlink(temp_file);
-		}
+			TEST_FAIL("putchar_fd");
+	}
 
-	if (OK)
-		TEST_PASS("ft_putchar_fd");
-	else
-		TEST_FAIL("ft_putchar_fd");
-	return (0);
+	close(fd);
+	return 0;
 }

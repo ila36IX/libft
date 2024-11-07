@@ -1,24 +1,20 @@
-CC = cc
-FLAGS = -Wall -Wextra -Werror -c
+CC = @cc
+CFLAGS = -Wall -Wextra -Werror
 SRC = ${wildcard *.c}
 OBJ = $(SRC:%.c=%.o)
+NAME = libft.a 
 
 .PHONY: all
 
-all: libft.a
+all: $(NAME)
 
-libft.a: $(OBJ)
+$(NAME): $(OBJ)
 	@ar rsc $@ $?
 
-%.o: %.c
-	@${CC} ${FLAGS} $^ -o $@
-
 clean:
-	rm *.o
+	@$(RM) *.o
 
 fclean: clean
-	rm libft.a
+	@$(RM) libft.a
 
-re: fclean libft.a
-
-
+re: fclean $(NAME)
