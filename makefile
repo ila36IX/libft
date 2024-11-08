@@ -20,6 +20,6 @@ clean:
 	@$(RM) *.o
 
 fclean: clean
-	$(RM) libft.a
+	@$(RM) libft.a
 
 re: fclean $(NAME)
