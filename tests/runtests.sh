@@ -31,7 +31,9 @@ fi
 
 if [[ $1 == "all" ]]; then
 while read -r f; do
-	if [[ -e "ft_$f.c" ]]; then
+	if [[ $f == "bonus" ]]; then
+		cc -g -Wall -Wextra -Werror -L. ft_*_bonus.c "tests/test_ft_bonus.c" -lft -o runtests && ./runtests
+	elif [[ -e "ft_$f.c" ]]; then
 		if [[ -e "tests/test_ft_$f.c" ]]; then
 			cc -g -Wall -Wextra -Werror -L. "tests/test_ft_$f.c" -lft -o runtests && ./runtests
 		else
@@ -41,6 +43,9 @@ while read -r f; do
 		echo "Messing the file: ft_$f.c"
 	fi
 done < ./tests/functions.txt
+
+elif [[ $1 == "bonus" ]]; then
+		cc -g -Wall -Wextra -Werror -L. ft_*_bonus.c "tests/test_ft_bonus.c" -lft -o runtests && ./runtests
 else
 	echo ""
 	# It's important to use -e to allow backslash escapes.

@@ -32,12 +32,4 @@ putchar_fd
 putstr_fd
 putendl_fd
 putnbr_fd
-lstnew_bonus
-lstadd_front_bonus
-lstsize_bonus
-lstlast_bonus
-lstadd_back_bonus
-lstdelone_bonus
-lstclear_bonus
-lstiter_bonus
-lstmap_bonus
+bonus

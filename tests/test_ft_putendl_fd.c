@@ -22,7 +22,7 @@ int main()
 		if (strcmp(buffer, "Testing is everything!\n") == 0)
 			TEST_PASS("ft_putendl_fd");
 		else
-			TEST_FAIL("ft_putendl_fd");
+			TEST_FAIL("ft_putendl_f");
 	}
 
 	close(fd);
