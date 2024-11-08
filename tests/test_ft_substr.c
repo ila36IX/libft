@@ -24,6 +24,7 @@ TestCase tests[] = {
     {0x0B, "Negative start index", "Hello, World!", -1, 5, ""},
     {0x0C, "Substring with spaces", "Hello, World! ", 6, 6, " World"},
     {0x0D, "Substring from middle", "Cannonbolt", 3, 4, "nonb"},
+    {0x0E, "one character from end", "AlienX", 5, 1, "X"},
 };
 
 int run_ft_substr_tests(int debug) {
