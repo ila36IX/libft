@@ -32,7 +32,7 @@ fi
 if [[ $1 == "all" ]]; then
 while read -r f; do
 	if [[ $f == "bonus" ]]; then
-		cc -g -Wall -Wextra -Werror -L. ft_*_bonus.c "tests/test_ft_bonus.c" -lft -o runtests && ./runtests
+		cc -g -Wall -Wextra -Werror -L. -lft "tests/test_ft_bonus.c" -lft -o runtests && ./runtests
 	elif [[ -e "ft_$f.c" ]]; then
 		if [[ -e "tests/test_ft_$f.c" ]]; then
 			cc -g -Wall -Wextra -Werror -L. "tests/test_ft_$f.c" -lft -o runtests && ./runtests
