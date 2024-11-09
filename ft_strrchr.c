@@ -17,15 +17,13 @@ char	*ft_strrchr(const char *s, int c)
 	char	*last_acc;
 
 	last_acc = NULL;
-	if (!s)
-		return (NULL);
 	while (*s)
 	{
-		if (*s == c)
+		if (*s == (char)c)
 			last_acc = (char *)s;
 		s++;
 	}
-	if (c == 0)
+	if ((char)c == 0)
 		return ((char *)s);
 	return (last_acc);
 }

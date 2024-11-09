@@ -16,7 +16,7 @@ static int	alloc_size(char const *s, unsigned int start, size_t len)
 {
 	size_t	size;
 
-	if (!s)
+	if (!s && start < 0 && len < 0)
 		return (-1);
 	size = 0;
 	while (s[size])
@@ -26,7 +26,7 @@ static int	alloc_size(char const *s, unsigned int start, size_t len)
 	if (size - start > len)
 		return (len);
 	else
-		return (size - start + 1);
+		return (size - start);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -38,7 +38,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	alloc_s = alloc_size(s, start, len);
 	if (alloc_s <= 0)
 		return (ft_strdup(""));
-	buff = malloc(sizeof(char) * alloc_s);
+	buff = malloc(sizeof(char) * (alloc_s + 1));
 	if (!buff)
 		return (NULL);
 	i = 0;

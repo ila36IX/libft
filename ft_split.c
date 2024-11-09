@@ -16,7 +16,7 @@ static int	count_words(char const *s, char c)
 {
 	int	count;
 
-	while (*s == c)
+	while (*s == c && *s)
 		s++;
 	count = 0;
 	while (*s)
@@ -79,7 +79,9 @@ char	**ft_split(char const *s, char c)
 	char	**tokens;
 	int		i;
 
-	tokens = malloc(sizeof(char *) * count_words(s, c) + 1);
+        if (!s)
+                return (NULL);
+	tokens = malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!tokens)
 		return (NULL);
 	i = 0;
@@ -87,12 +89,13 @@ char	**ft_split(char const *s, char c)
 		s++;
 	while (*s)
 	{
-		s = fill_buff(tokens, s, c, i++);
+		s = fill_buff(tokens, s, c, i);
 		if (!s)
 		{
 			free_arr(tokens, i);
 			return (NULL);
 		}
+                i++;
 	}
 	tokens[i] = NULL;
 	return (tokens);
