@@ -16,6 +16,8 @@ void	ft_putnbr_fd(int nb, int fd)
 	unsigned int	n;
 	char			c;
 
+	if (fd < 0)
+		return ;
 	if (nb < 0)
 	{
 		n = nb * -1;
@@ -26,5 +28,5 @@ void	ft_putnbr_fd(int nb, int fd)
 	if (n > 9)
 		ft_putnbr_fd(n / 10, fd);
 	c = n % 10 + '0';
-	write (fd, &c, 1);
+	write(fd, &c, 1);
 }

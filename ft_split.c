@@ -79,8 +79,8 @@ char	**ft_split(char const *s, char c)
 	char	**tokens;
 	int		i;
 
-        if (!s)
-                return (NULL);
+	if (!s)
+		return (NULL);
 	tokens = malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!tokens)
 		return (NULL);
@@ -95,8 +95,7 @@ char	**ft_split(char const *s, char c)
 			free_arr(tokens, i);
 			return (NULL);
 		}
-                i++;
+		i++;
 	}
-	tokens[i] = NULL;
-	return (tokens);
+	return ((tokens[i] = NULL), tokens);
 }
