@@ -15,8 +15,12 @@
 void	*ft_calloc(size_t num, size_t size)
 {
 	void	*buff;
+	size_t	n;
 
-	buff = malloc(num * size);
+	n = num * size;
+	if (size && num > SIZE_MAX / size)
+		return (NULL);
+	buff = malloc(n);
 	if (!buff)
 		return (NULL);
 	ft_bzero(buff, num * size);
