@@ -4,7 +4,7 @@ int main()
 {
 	const char *file_path = "/tmp/file_descriptor_tests.txt";
 
-	int fd = open(file_path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	int fd = open(file_path, O_WRONLY | O_CREAT | O_TRUNC);
 
 	ft_putnbr_fd(-2147483647, fd);
 

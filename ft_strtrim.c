@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	c_exist(const char *s, char c)
+static int	c_exist(const char *s, char c)
 {
 	while (*s)
 		if (*(s++) == c)
