@@ -6,7 +6,7 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:27:12 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/06 06:41:49 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/11 08:55:21 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	alloc_size(char const *s, unsigned int start, size_t len)
 {
 	size_t	size;
 
-	if (!s && start < 0 && len < 0)
+	if (!s)
 		return (-1);
 	size = 0;
 	while (s[size])

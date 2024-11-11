@@ -6,7 +6,7 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 05:33:02 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/06 05:44:54 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/11 08:53:50 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_calloc(size_t num, size_t size)
 	size_t	n;
 
 	n = num * size;
-	if (size && num > SIZE_MAX / size)
+	if (size && num > SSIZE_MAX / size)
 		return (NULL);
 	buff = malloc(n);
 	if (!buff)
