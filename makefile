@@ -6,7 +6,7 @@ OBJ = $(SRC:%.c=%.o)
 OBJ_BNS = $(BNS:%.c=%.o)
 NAME = libft.a 
 
-.PHONY: all bonus
+.PHONY: all bonus clean fclean re
 
 all: $(NAME)
 
@@ -20,6 +20,6 @@ clean:
 	@$(RM) *.o
 
 fclean: clean
-	@$(RM) libft.a
+	@$(RM) $(NAME)
 
 re: fclean $(NAME)
