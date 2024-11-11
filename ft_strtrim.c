@@ -64,9 +64,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	size;
 	char	*buff;
 
-	if (!set)
-		return (ft_strdup(""));
 	if (!s1)
+		return (ft_strdup(""));
+	if (!set)
 		return (ft_strdup(s1));
 	size = alloc_size(s1, set);
 	if (!size)

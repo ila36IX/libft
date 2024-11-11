@@ -17,9 +17,9 @@
 typedef struct {
     int     index;
     char    desc[50];
-    char    input[200];
-    char    set[50];
-    char    expected[200];
+    char    *input;
+    char    *set;
+    char    *expected;
 } TestCase;
 
 TestCase tests[] = {
@@ -45,6 +45,9 @@ TestCase tests[] = {
     {0x14, "Set larger than input", "Hi", "Hia", ""},
     {0x15, "Long set with spaces", "  Hello World!  ", " !", "Hello World"},
     {0x16, "Trimming numerals", "123ali456", "123456", "ali"},
+    {0x17, "string to trim is null", NULL, "123456", ""},
+    {0x18, "set is null", "No not a the NULL", NULL, "No not a the NULL"},
+    {0x19, "set and string is null", NULL, NULL, ""}
 };
 
 int run_ft_strtrim_tests(int debug) {
@@ -55,8 +58,32 @@ int run_ft_strtrim_tests(int debug) {
         TestCase test_case = tests[i];
         char *result = ft_strtrim(test_case.input, test_case.set);
         int passed = TRUE;
-        
-        if (result == NULL || strcmp(result, test_case.expected) != 0)
+       
+        if (!test_case.input && !test_case.set)
+        {
+            if (strcmp(result, "") != 0)
+            {
+                passed = FALSE;
+                OK = FALSE;
+            }
+        }
+        else if (test_case.input && !test_case.set)
+        {
+            if (strcmp(result, test_case.input) != 0)
+            {
+                passed = FALSE;
+                OK = FALSE;
+            }
+        }
+        else if (!test_case.input && test_case.set)
+        {
+            if (strcmp(result, "") != 0)
+            {
+                passed = FALSE;
+                OK = FALSE;
+            }
+        }
+        else if (strcmp(result, test_case.expected) != 0)
         {
             passed = FALSE;
             OK = FALSE;

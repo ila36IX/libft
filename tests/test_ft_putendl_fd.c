@@ -26,5 +26,8 @@ int main()
 	}
 
 	close(fd);
+	fd = open(file_path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	ft_putendl_fd("Testing is everything!", fd);
+	close(fd);
 	return 0;
 }

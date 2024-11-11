@@ -5,8 +5,8 @@
 typedef struct {
     int     index;
     char    desc[50];
-    char    s1[100];
-    char    s2[100];
+    char    *s1;
+    char    *s2;
     char    expected[200];
 } TestCase;
 
@@ -19,6 +19,9 @@ TestCase tests[] = {
     {0x06, "Join with spaces", "Hello", " World", "Hello World"},
     {0x07, "Join with numbers", "123", "456", "123456"},
     {0x08, "Join long strings", "A very long string that exceeds usual length", " and continues even further", "A very long string that exceeds usual length and continues even further"},
+    {0x09, "fisrt is null", NULL, "hello null", "hello null"},
+    {0x10, "second is null", "hello null", NULL, "hello null"},
+    {0x11, "two null", "hello null", NULL, "hello null"},
 };
 
 int run_ft_strjoin_tests(int debug) {

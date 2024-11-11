@@ -5,7 +5,7 @@
 typedef struct {
     int     index;
     char    desc[50];
-    char    input[100];
+    char    *input;
     unsigned int start;
     size_t len;
     char    expected[100];
@@ -25,6 +25,7 @@ TestCase tests[] = {
     {0x0C, "Substring with spaces", "Hello, World! ", 6, 6, " World"},
     {0x0D, "Substring from middle", "Cannonbolt", 3, 4, "nonb"},
     {0x0E, "one character from end", "AlienX", 5, 1, "X"},
+    {0x0F, "string is null", NULL, 5, 1, ""},
 };
 
 int run_ft_substr_tests(int debug) {
@@ -36,7 +37,15 @@ int run_ft_substr_tests(int debug) {
         char *result = ft_substr(test_case.input, test_case.start, test_case.len);
         int passed = TRUE;
 
-        if (result == NULL || strcmp(result, test_case.expected) != 0) {
+        if (!test_case.input)
+        {
+            if (!(!result || !*result))
+            {
+                passed = FALSE;
+                OK = FALSE;
+            }
+        }
+        else if (result == NULL || strcmp(result, test_case.expected) != 0) {
             passed = FALSE;
             OK = FALSE;
         }

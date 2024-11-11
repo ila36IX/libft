@@ -20,12 +20,10 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!s)
 		return (ft_strdup(""));
 	buff = ft_strdup(s);
-	if (!f)
-		return (ft_strdup(s));
 	if (!buff)
 		return (NULL);
 	i = 0;
-	while (s[i])
+	while (s[i] && f)
 	{
 		buff[i] = f(i, s[i]);
 		i++;
