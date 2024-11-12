@@ -14,8 +14,8 @@
 
 static size_t	ft_calc_sz(char const *s1, char const *s2)
 {
-	size_t size;
-	
+	size_t	size;
+
 	size = 0;
 	if (s1)
 		size += ft_strlen(s1);

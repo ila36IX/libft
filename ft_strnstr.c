@@ -18,6 +18,8 @@ char	*ft_strnstr(const char *s, const char *to_find, size_t n)
 	size_t	k;
 	size_t	j;
 
+	if (!s || !to_find)
+		return (NULL);
 	if ((!*s && !*to_find) || (!*to_find && !n))
 		return ((char *)s);
 	i = 0;
