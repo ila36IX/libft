@@ -266,6 +266,7 @@ int test_ft_lstmap()
 int main()
 {
 	int all_passed = 1;
+	t_list *lst = NULL;
 
 	// Run all tests
 	all_passed &= test_ft_lstnew();
@@ -277,6 +278,23 @@ int main()
 	all_passed &= test_ft_lstclear();
 	all_passed &= test_ft_lstiter();
 	all_passed &= test_ft_lstmap();
+	ft_lstnew(NULL);
+	ft_lstadd_front(NULL, NULL);
+	ft_lstsize(NULL);
+	ft_lstlast(NULL);
+	ft_lstadd_back(NULL, NULL);
+	ft_lstadd_back(&lst, NULL);
+	ft_lstadd_back(NULL, ft_lstnew(NULL));
+	ft_lstdelone(NULL, NULL);
+	ft_lstdelone(lst, NULL);
+	ft_lstclear(NULL, NULL);
+	ft_lstclear(&lst, NULL);
+	ft_lstclear(NULL, del_content);
+	ft_lstiter(NULL, NULL);
+	ft_lstiter(NULL, to_upper);
+	ft_lstiter(lst, NULL);
+	ft_lstmap(NULL, NULL, NULL);
+	ft_lstmap(lst, NULL, NULL);
 
 	if (all_passed)
 		TEST_PASS("bonus");

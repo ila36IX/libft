@@ -6,7 +6,7 @@
 /*   By: aljbari <aljbari@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 07:14:21 by aljbari           #+#    #+#             */
-/*   Updated: 2024/11/05 07:20:28 by aljbari          ###   ########.fr       */
+/*   Updated: 2024/11/05 07:19:39 by aljbari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ TestCase striteri_tests[] = {
     {19, "String with tabs", "Grey\tMatter", identity, "Grey\tMatter"},
     {20, "NULL input string", NULL, identity, NULL},
     {21, "NULL function pointer with valid string", "Upgrade", NULL, "Upgrade"},
-    {0,"null", NULL, NULL, NULL}
+    {22,"everything is null", NULL, NULL, NULL}
 };
 
 int run_striteri_tests(int debug)

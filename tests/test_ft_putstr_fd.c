@@ -3,6 +3,7 @@
 int main()
 {
 	const char *file_path = "/tmp/file_descriptor_tests.txt";
+	int OK = TRUE;
 
 	int fd = open(file_path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 
@@ -19,10 +20,8 @@ int main()
 
 	if (bytes_read > 0)
 	{
-		if (strcmp(buffer, "Testing is everything!") == 0)
-			TEST_PASS("putstr_fd");
-		else
-			TEST_FAIL("putstr_fd");
+		if (strcmp(buffer, "Testing is everything!") != 0)
+			OK = FALSE;
 	}
 
 	close(fd);
@@ -30,5 +29,11 @@ int main()
 
 	ft_putstr_fd(NULL, fd);
 	close(fd);
+	
+	if (OK)
+		TEST_PASS("putstr_fd");
+	else
+		TEST_FAIL("putstr_fd");
+
 	return 0;
 }
