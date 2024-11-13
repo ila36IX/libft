@@ -80,6 +80,7 @@ int main(int ac, char **av)
 	if (ac > 1)
 		debug = TRUE;
 
+	ft_memcpy(NULL, NULL, 69);
 	if (run_memcpy_tests(debug))
 		TEST_PASS("memcpy");
 	else
