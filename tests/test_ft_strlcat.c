@@ -116,16 +116,19 @@ int run_strlcat_tests(int debug)
 
 int main(int ac, char **av)
 {
-    int debug = FALSE;
+        int debug = FALSE;
 
-    (void) av;
-    if (ac > 1)
-        debug = TRUE;
+        (void) av;
+        if (ac > 1)
+                debug = TRUE;
 
-    if (run_strlcat_tests(debug))
-        TEST_PASS("strlcat");
-    else
-        TEST_FAIL("strlcat");
-    return 0;
+        ft_strlcat(NULL, "not null", 0);
+
+        if (run_strlcat_tests(debug))
+                TEST_PASS("strlcat");
+        else
+                TEST_FAIL("strlcat");
+
+        return 0;
 }
 
