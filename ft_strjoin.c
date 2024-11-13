@@ -21,7 +21,7 @@ static size_t	ft_calc_sz(char const *s1, char const *s2)
 		size += ft_strlen(s1);
 	if (s2)
 		size += ft_strlen(s2);
-	return (size);
+	return (size + 1);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
@@ -30,7 +30,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	j;
 	char	*buff;
 
-	buff = malloc(sizeof(char) * (ft_calc_sz(s1, s2) + 1));
+	buff = malloc(sizeof(char) * (ft_calc_sz(s1, s2)));
 	if (!buff)
 		return (NULL);
 	i = 0;

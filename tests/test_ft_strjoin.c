@@ -7,7 +7,7 @@ typedef struct {
     char    desc[50];
     char    *s1;
     char    *s2;
-    char    expected[200];
+    char    *expected;
 } TestCase;
 
 TestCase tests[] = {
@@ -21,7 +21,6 @@ TestCase tests[] = {
     {0x08, "Join long strings", "A very long string that exceeds usual length", " and continues even further", "A very long string that exceeds usual length and continues even further"},
     {0x09, "fisrt is null", NULL, "hello null", "hello null"},
     {0x10, "second is null", "hello null", NULL, "hello null"},
-    {0x11, "two null", "hello null", NULL, "hello null"},
 };
 
 int run_ft_strjoin_tests(int debug) {
@@ -60,6 +59,8 @@ int main(int ac, char **av)
     (void) av;
     if (ac > 1)
         debug = TRUE;
+
+    ft_strjoin(NULL, NULL);
     if (run_ft_strjoin_tests(debug))
         TEST_PASS("strjoin");
     else

@@ -90,6 +90,7 @@ int main(int ac, char **av)
 	int debug = FALSE;
 
 	(void) av;
+	ft_split(NULL, 0);
 	if (ac > 1)
 		debug = TRUE;
 	if (run_ft_split_tests(debug))

@@ -57,10 +57,9 @@ int run_memmove_tests(int debug) {
 	free(s2);
 
 	test_case = "WHEN: dest is src";
-	s1 = strdup("alien is not from earth");
-	s2 = strdup("alien is not from earth");
+	s1 = "seg fault";
 	o1 = memmove(s1, s1, 9);
-	o2 = ft_memmove(s2, s2, 9);
+	o2 = ft_memmove(s1, s1, 9);
 	if (strcmp(o1, o2) != 0)
 	{
 		if (debug)
@@ -76,8 +75,6 @@ int run_memmove_tests(int debug) {
 		if (debug)
 			TEST_PASS(test_case);
 	}
-	free(s1);
-	free(s2);
 
 
 	test_case = "WHEN: n is 0";

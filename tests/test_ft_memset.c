@@ -80,7 +80,7 @@ int main(int ac, char **av)
 	if (ac > 1)
 		debug = TRUE;
 
-        ft_memset("Please no null", "Please no null", 5);
+        ft_memset("Please no null", 'a', 0);
 	if (run_memset_tests(ft_memset, debug))
 		TEST_PASS("memset");
 	else

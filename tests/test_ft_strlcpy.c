@@ -102,6 +102,7 @@ int main(int ac, char **av)
 	if (ac > 1)
 		debug = TRUE;
 
+	ft_strlcpy(NULL, "no null please", 0);
 	if (run_strlcpy_tests(debug))
 		TEST_PASS("strlcpy");
 	else
