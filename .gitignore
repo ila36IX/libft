@@ -2,3 +2,4 @@ run
 runtests
 *.o
 tests/*.o
+libft.a
