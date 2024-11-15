@@ -281,7 +281,7 @@ int main()
 	ft_lstnew(NULL);
 	ft_lstadd_front(NULL, NULL);
 	ft_lstadd_front(&lst, NULL);
-	ft_lstadd_front(NULL, ":)");
+	ft_lstadd_front(NULL, lst);
 	ft_lstsize(NULL);
 	ft_lstlast(NULL);
 	ft_lstadd_back(NULL, NULL);
